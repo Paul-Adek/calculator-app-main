@@ -1,0 +1,399 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'League Spartan', sans-serif;
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  background: hsl(222, 26%, 31%);
+  padding-top: 50px;
+}
+.navigation {
+  color: hsl(0, 0%, 100%);
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: max-content;
+  width: 100%;
+  position: relative;
+  font-weight: 500;
+}
+.calculator-con {
+  width: 470px;
+  max-height: 500px;
+  margin: 0 auto;
+  padding: 10px 10px;
+  position: relative;
+}
+.checkbox {
+  border: solid 1px hsl(223, 31%, 20%);
+  width: 60px;
+  height: 22px;
+  background: hsl(223, 31%, 20%);
+  border-radius: 15px;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  overflow: hidden;
+}
+.theme {
+  width: max-content;
+  transform: translate(-50px, 4.5px);
+  font-size: 10px;
+  right: 30px;
+  top: 3px;
+  position: absolute;
+  text-transform: uppercase;
+}
+.theme-no {
+  transform: translate(6px, -20px);
+  font-size: 12px;
+  letter-spacing: 5px;
+  width: max-content;
+  position: absolute;
+  right: 9px;
+}
+.checkbox div {
+  width: 100%;
+  background: transparent;
+  height: 100%;
+  transition: all 1s;
+  border-radius: 50%;
+}
+.checkbox div:active {
+  background: hsl(221, 22%, 50%);
+  transform: scale(3);
+  transition: all 0.5s;
+}
+.checkmark {
+  width: 14px;
+  height: 14px;
+  position: absolute;
+  left: 4px;
+  top: 15.6%;
+  border-radius: 50%;
+  background: hsl(6, 63%, 50%);
+  cursor: pointer;
+  z-index: 2;
+  transition: left 0.5s;
+}
+.display {
+  width: 100%;
+  height: 105px;
+  border: 1px solid hsl(224, 36%, 15%);
+  margin: 20px auto;
+  border-radius: 10px;
+  background: hsl(224, 36%, 15%);
+  color: hsl(0, 0%, 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.display input {
+  width: 100%;
+  height: 100%;
+  margin: 10px 20px;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 32px;
+  text-align: right;
+  color: inherit;
+}
+.display input:focus {
+  display: none;
+}
+.key-pad {
+  width: 100%;
+  height: max-content;
+  background: hsl(223, 31%, 20%);
+  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(1fr, 4);
+  grid-auto-rows: minmax(50px auto);
+  gap: 20px;
+  padding: 25px 30px;
+  border-radius: 10px;
+  margin: 0 auto;
+}
+.key-pad button {
+  width: 80px;
+  height: 47px;
+  border: none;
+  outline: none;
+  background: hsl(30, 25%, 89%);
+  border-radius: 10px;
+  font-size: 25px;
+  box-shadow: 0 3px 1px 0 hsl(28, 16%, 65%);
+  font-weight: 1000;
+  color: hsl(221, 14%, 31%);
+  cursor: pointer;
+}
+.key-pad button:hover {
+  background: hsl(0, 0%, 100%);
+}
+.key-pad button:nth-child(1) {
+  grid-column: 1/2;
+  grid-row: 1/2;
+}
+.key-pad button:nth-child(2) {
+  grid-column: 2/3;
+  grid-row: 1/2;
+}
+.key-pad button:nth-child(3) {
+  grid-column: 3/4;
+  grid-row: 1/2;
+}
+.key-pad button:nth-child(4) {
+  grid-column: 4/5;
+  grid-row: 1/2;
+  background: hsl(225, 21%, 49%);
+  font-size: 20px;
+  box-shadow: 0 3px 1px 0 hsl(224, 28%, 35%);
+  color: hsl(0, 0%, 100%);
+}
+.key-pad button:nth-child(18) {
+  grid-column: 3/5;
+  width: 190px;
+  color: hsl(0, 0%, 100%);
+  background: hsl(6, 63%, 50%);
+  box-shadow: 0 3px 1px 0 hsl(6, 70%, 34%);
+}
+.key-pad button:nth-child(17) {
+  width: 190px;
+  height: 47px;
+  border: none;
+  outline: none;
+  background: hsl(225, 21%, 49%);
+  border-radius: 10px;
+  font-size: 20px;
+  box-shadow: 0 3px 1px 0 hsl(224, 28%, 35%);
+  font-weight: 1000;
+  color: hsl(0, 0%, 100%);
+  text-transform: uppercase;
+  grid-column: 1/3;
+  cursor: pointer;
+}
+.key-pad button:hover:nth-child(17),
+.key-pad button:hover:nth-child(4) {
+  background: hsl(225, 57%, 77%);
+}
+.key-pad button:hover:nth-child(18) {
+  background: hsl(6, 72%, 66%);
+}
+.attribution {
+  color: hsl(0, 0%, 93%);
+  font-weight: 500;
+}
+.attribution a {
+  color: hsl(6, 63%, 50%);
+  text-decoration: none;
+}
+/* THEME TWO */
+.key-pad .two {
+  width: 80px;
+  height: 47px;
+  border: none;
+  outline: none;
+  background: hsl(45, 7%, 89%);
+  border-radius: 10px;
+  font-size: 25px;
+  box-shadow: 0 3px 1px 0 hsl(35, 11%, 61%);
+  font-weight: 1000;
+  color: hsl(60, 10%, 19%);
+  cursor: pointer;
+}
+.key-pad .two:hover {
+  background: hsl(0, 0%, 100%);
+}
+.key-pad .two:nth-child(1) {
+  grid-column: 1/2;
+  grid-row: 1/2;
+}
+.key-pad .two:nth-child(2) {
+  grid-column: 2/3;
+  grid-row: 1/2;
+}
+.key-pad .two:nth-child(3) {
+  grid-column: 3/4;
+  grid-row: 1/2;
+}
+.key-pad .two:nth-child(4) {
+  grid-column: 4/5;
+  grid-row: 1/2;
+  background: hsl(185, 42%, 37%);
+  font-size: 20px;
+  box-shadow: 0 3px 1px 0 hsl(185, 58%, 25%);
+  color: hsl(0, 0%, 100%);
+}
+.key-pad .two:nth-child(18) {
+  grid-column: 3/5;
+  width: 190px;
+  color: hsl(0, 0%, 100%);
+  background: hsl(25, 98%, 40%);
+  box-shadow: 0 3px 1px 0 hsl(25, 99%, 27%);
+}
+.key-pad .two:nth-child(17) {
+  width: 190px;
+  height: 47px;
+  border: none;
+  outline: none;
+  background: hsl(185, 42%, 37%);
+  border-radius: 10px;
+  font-size: 20px;
+  box-shadow: 0 3px 1px 0 hsl(185, 58%, 25%);
+  font-weight: 1000;
+  color: hsl(0, 0%, 100%);
+  text-transform: uppercase;
+  grid-column: 1/3;
+  cursor: pointer;
+}
+.key-pad .two:hover:nth-child(17),
+.key-pad .two:hover:nth-child(4) {
+  background: hsl(185, 43%, 60%);
+}
+.key-pad .two:hover:nth-child(18) {
+  background: hsl(25, 84%, 53%);
+}
+/* THEME THREE */
+.key-pad .three {
+  width: 80px;
+  height: 47px;
+  border: none;
+  outline: none;
+  background: hsl(268, 47%, 21%);
+  border-radius: 10px;
+  font-size: 25px;
+  box-shadow: 0 3px 1px 0 hsl(290, 70%, 36%);
+  font-weight: 1000;
+  color: hsl(52, 100%, 62%);
+  cursor: pointer;
+}
+.key-pad .three:hover {
+  background: hsl(268, 46%, 45%);
+}
+.key-pad .three:nth-child(1) {
+  grid-column: 1/2;
+  grid-row: 1/2;
+}
+.key-pad .three:nth-child(2) {
+  grid-column: 2/3;
+  grid-row: 1/2;
+}
+.key-pad .three:nth-child(3) {
+  grid-column: 3/4;
+  grid-row: 1/2;
+}
+.key-pad .three:nth-child(4) {
+  grid-column: 4/5;
+  grid-row: 1/2;
+  background: hsl(281, 89%, 26%);
+  font-size: 20px;
+  box-shadow: 0 3px 1px 0 hsl(285, 91%, 52%);
+  color: hsl(0, 0%, 100%);
+}
+.key-pad .three:nth-child(18) {
+  grid-column: 3/5;
+  width: 190px;
+  color: hsl(198, 20%, 13%);
+  background: hsl(176, 100%, 44%);
+  box-shadow: 0 3px 1px 0 hsl(177, 92%, 70%);
+}
+.key-pad .three:nth-child(17) {
+  width: 190px;
+  height: 47px;
+  border: none;
+  outline: none;
+  background: hsl(281, 89%, 26%);
+  border-radius: 10px;
+  font-size: 20px;
+  box-shadow: 0 3px 1px 0 hsl(285, 91%, 52%);
+  font-weight: 1000;
+  color: hsl(0, 0%, 100%);
+  text-transform: uppercase;
+  grid-column: 1/3;
+  cursor: pointer;
+}
+.key-pad .three:hover:nth-child(17),
+.key-pad .three:hover:nth-child(4) {
+  background: hsl(281, 94%, 46%);
+}
+.key-pad .three:hover:nth-child(18) {
+  background: hsl(176, 84%, 71%);
+}
+.key-pad-two {
+  background: hsl(0, 5%, 81%);
+  border: transparent;
+}
+.key-pad-three {
+  background: hsl(268, 71%, 12%);
+  border: 1px solid hsl(268, 71%, 12%);
+}
+.display-two {
+  border: 1px solid hsl(0, 0%, 93%);
+  background: hsl(0, 0%, 93%);
+  color: hsl(60, 10%, 19%);
+}
+.navigation-two {
+  color: hsl(60, 10%, 19%);
+}
+.display-three {
+  border: 1px solid hsl(268, 71%, 12%);
+  background: hsl(268, 71%, 12%);
+  color: hsl(52, 100%, 62%);
+}
+.navigation-three {
+  color: hsl(52, 100%, 62%);
+}
+@media only screen and (max-width: 376px) {
+  .calculator-con {
+    width: 300px;
+    max-height: 500px;
+    margin: 0 auto;
+    padding: 10px 10px;
+    position: relative;
+  }
+  .key-pad {
+    display: grid;
+    gap: 12px;
+    grid-auto-columns: minmax(50px, auto);
+    padding: 25px 20px;
+  }
+  .key-pad button,
+  .key-pad .two,
+  .key-pad .three {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+  }
+  .key-pad button:nth-child(18),
+  .key-pad .two:nth-child(18),
+  .key-pad .three:nth-child(18) {
+    width: 110px;
+  }
+  .key-pad button:nth-child(17),
+  .key-pad .two:nth-child(17),
+  .key-pad .three:nth-child(17) {
+    width: 110px;
+    border-radius: 5px;
+    height: 50px;
+  }
+  .attribution {
+    text-align: center;
+    font-size: 15px;
+  }
+}
